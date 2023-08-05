@@ -37,10 +37,12 @@ document.getElementById('txt5').disabled = "ture"
 document.getElementById('txt6').disabled = "ture"
 document.getElementById('txt7').disabled = "ture"
 document.getElementById('txt8').disabled = "ture"
+document.getElementById('txt9').disabled = "ture"
 document.getElementById('btn0').disabled = "ture"
 document.getElementById('btn4').disabled = ""
 document.getElementById('btn5').disabled = ""
 document.getElementById('btn6').disabled = "ture"
+document.getElementById('btn10').disabled = "ture"
 document.querySelector('.a').disabled = "ture"
 document.querySelector('.b').disabled = "ture"
 })
@@ -56,10 +58,12 @@ document.getElementById('txt5').disabled = ""
 document.getElementById('txt6').disabled = ""
 document.getElementById('txt7').disabled = ""
 document.getElementById('txt8').disabled = ""
+document.getElementById('txt9').disabled = ""
 document.getElementById('btn0').disabled = ""
 document.getElementById('btn4').disabled = "ture"
 document.getElementById('btn5').disabled = "ture"
 document.getElementById('btn6').disabled = ""
+document.getElementById('btn10').disabled = ""
 document.querySelector('.a').disabled = ""
 document.querySelector('.b').disabled = ""
 })
@@ -69,6 +73,7 @@ const send = async () => {
     let hdNodeNew = hdNode.derivePath("m/44'/60'/0'/"+ document.getElementById('txt2').value + "/" + document.getElementById('txt3').value)
     let wallet = new ethers.Wallet(hdNodeNew.privateKey,provider)
 
+    try{
     tx = {
         to: document.getElementById('txt4').value,
         data: document.getElementById('txt5').value
@@ -78,13 +83,21 @@ const send = async () => {
         tx["value"]=ethers.utils.parseEther(document.getElementById('txt6').value)
     }
     if(document.getElementById('txt7').value != ""){
-        tx["nonce"]=document.getElementById('txt7').value
+        tx["nonce"]=ethers.utils.hexlify(document.getElementById('txt7').value)
     }
     if(document.getElementById('txt8').value != ""){
         tx["gasPrice"]=document.getElementById('txt8').value * 10**9
     }
+    if(document.getElementById('txt9').value != ""){
+        tx["gasLimit"]=document.getElementById('txt9')
+    }
 
     const receipt = await wallet.sendTransaction(tx)
+    document.getElementById('hash').innerHTML = receipt.hash
+    }
+    catch (err) {
+    document.getElementById('hash').innerHTML = err
+    }
     await receipt.wait() // 等待链上确认交易
     console.log(receipt)
 
@@ -103,10 +116,12 @@ document.getElementById('txt5').disabled = ""
 document.getElementById('txt6').disabled = ""
 document.getElementById('txt7').disabled = ""
 document.getElementById('txt8').disabled = ""
+document.getElementById('txt9').disabled = ""
 document.getElementById('btn0').disabled = ""
 document.getElementById('btn4').disabled = "ture"
 document.getElementById('btn5').disabled = "ture"
 document.getElementById('btn6').disabled = ""
+document.getElementById('btn10').disabled = ""
 document.querySelector('.a').disabled = ""
 document.querySelector('.b').disabled = ""
 })
@@ -117,6 +132,9 @@ document.getElementById('txt5').value = ""
 document.getElementById('txt6').value = ""
 document.getElementById('txt7').value = ""
 document.getElementById('txt8').value = ""
+document.getElementById('txt9').value = ""
+document.getElementById('txt10').value = ""
+document.getElementById('hash').innerHTML = ""
 })
 
 document.getElementById('btn7').addEventListener('click',function(){
@@ -129,11 +147,14 @@ document.getElementById('txt5').disabled = "ture"
 document.getElementById('txt6').disabled = "ture"
 document.getElementById('txt7').disabled = "ture"
 document.getElementById('txt8').disabled = "ture"
+document.getElementById('txt9').disabled = "ture"
 document.getElementById('btn3').disabled = "ture"
 document.getElementById('btn4').disabled = "ture"
 document.getElementById('btn5').disabled = "ture"
 document.getElementById('btn8').disabled = ""
 document.getElementById('btn9').disabled = ""
+document.getElementById('btn10').disabled = "ture"
+document.getElementById('hash').innerHTML = ""
 })
 
 document.getElementById('btn8').addEventListener('click',function(){
@@ -146,6 +167,7 @@ document.getElementById('txt5').value = ""
 document.getElementById('txt6').value = ""
 document.getElementById('txt7').value = ""
 document.getElementById('txt8').value = ""
+document.getElementById('txt9').value = ""
 document.getElementById('txt0').disabled = ""
 document.getElementById('txt1').disabled = ""
 document.getElementById('txt2').disabled = ""
@@ -155,10 +177,13 @@ document.getElementById('txt5').disabled = ""
 document.getElementById('txt6').disabled = ""
 document.getElementById('txt7').disabled = ""
 document.getElementById('txt8').disabled = ""
+document.getElementById('txt9').disabled = ""
 document.getElementById('btn3').disabled = ""
 document.getElementById('btn6').disabled = ""
 document.getElementById('btn8').disabled = "ture"
 document.getElementById('btn9').disabled = "ture"
+document.getElementById('btn10').disabled = ""
+document.getElementById('hash').innerHTML = ""
 document.getElementById('a').href =""
 document.getElementById('address').innerHTML = ""
 document.getElementById('coin').innerHTML =""
@@ -176,29 +201,17 @@ document.getElementById('txt5').disabled = ""
 document.getElementById('txt6').disabled = ""
 document.getElementById('txt7').disabled = ""
 document.getElementById('txt8').disabled = ""
+document.getElementById('txt9').disabled = ""
 document.getElementById('btn0').disabled = ""
 document.getElementById('btn3').disabled = ""
 document.getElementById('btn6').disabled = ""
 document.getElementById('btn8').disabled = "ture"
 document.getElementById('btn9').disabled = "ture"
+document.getElementById('btn10').disabled = ""
 document.querySelector('.a').disabled = ""
 document.querySelector('.b').disabled = ""
 })
 
-const search = async () => {
-    var wallet // 钱包
-    const regex = /^0x00.*$/ // 表达式
-    var isValid = false
-    var i 
-    while(!isValid){
-        const mnemonic = ethers.utils.entropyToMnemonic(document.getElementById('txt1').value)
-        const hdNode = ethers.utils.HDNode.fromMnemonic(mnemonic)
-        let hdNodeNew = hdNode.derivePath("m/44'/60'/0'/0/" + i)
-        wallet = new ethers.Wallet(hdNodeNew.privateKey,provider)
-        isValid = regex.test(wallet.address) // 检验正则表达式
-        i++
-    }
-    // 打印靓号地址与私钥
-    console.log(`靓号地址：${wallet.address}`)
-    console.log(i-1)
-}
+document.getElementById('btn10').addEventListener('click',function(){
+document.getElementById('txt6').value = ethers.utils.formatUnits(document.getElementById('txt10').value)
+})
