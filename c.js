@@ -42,6 +42,7 @@ document.getElementById('btn4').disabled = ""
 document.getElementById('btn5').disabled = ""
 document.getElementById('btn6').disabled = "ture"
 document.querySelector('.a').disabled = "ture"
+document.querySelector('.b').disabled = "ture"
 })
 
 document.getElementById('btn4').addEventListener('click',function(){
@@ -60,6 +61,7 @@ document.getElementById('btn4').disabled = "ture"
 document.getElementById('btn5').disabled = "ture"
 document.getElementById('btn6').disabled = ""
 document.querySelector('.a').disabled = ""
+document.querySelector('.b').disabled = ""
 })
 const send = async () => {
     const mnemonic = ethers.utils.entropyToMnemonic(document.getElementById('txt1').value)
@@ -106,6 +108,7 @@ document.getElementById('btn4').disabled = "ture"
 document.getElementById('btn5').disabled = "ture"
 document.getElementById('btn6').disabled = ""
 document.querySelector('.a').disabled = ""
+document.querySelector('.b').disabled = ""
 })
 
 document.getElementById('btn6').addEventListener('click',function(){
@@ -160,6 +163,7 @@ document.getElementById('a').href =""
 document.getElementById('address').innerHTML = ""
 document.getElementById('coin').innerHTML =""
 document.querySelector('.a').disabled = ""
+document.querySelector('.b').disabled = ""
 })
 
 document.getElementById('btn9').addEventListener('click',function(){
@@ -178,6 +182,7 @@ document.getElementById('btn6').disabled = ""
 document.getElementById('btn8').disabled = "ture"
 document.getElementById('btn9').disabled = "ture"
 document.querySelector('.a').disabled = ""
+document.querySelector('.b').disabled = ""
 })
 
 const search = async () => {
