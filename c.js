@@ -38,6 +38,7 @@ document.getElementById('txt6').disabled = "ture"
 document.getElementById('txt7').disabled = "ture"
 document.getElementById('txt8').disabled = "ture"
 document.getElementById('txt9').disabled = "ture"
+document.getElementById('txt10').disabled = "ture"
 document.getElementById('btn0').disabled = "ture"
 document.getElementById('btn4').disabled = ""
 document.getElementById('btn5').disabled = ""
@@ -59,6 +60,7 @@ document.getElementById('txt6').disabled = ""
 document.getElementById('txt7').disabled = ""
 document.getElementById('txt8').disabled = ""
 document.getElementById('txt9').disabled = ""
+document.getElementById('txt10').disabled = ""
 document.getElementById('btn0').disabled = ""
 document.getElementById('btn4').disabled = "ture"
 document.getElementById('btn5').disabled = "ture"
@@ -86,10 +88,13 @@ const send = async () => {
         tx["nonce"]=ethers.utils.hexlify(document.getElementById('txt7').value)
     }
     if(document.getElementById('txt8').value != ""){
-        tx["gasPrice"]=document.getElementById('txt8').value * 10**9
+        tx["maxFeePerGas"]=document.getElementById('txt8').value * 10**9
     }
     if(document.getElementById('txt9').value != ""){
-        tx["gasLimit"]=document.getElementById('txt9')
+        tx["maxPriorityFeePerGas"]=document.getElementById('txt9').value * 10**9
+    }
+    if(document.getElementById('txt10').value != ""){
+        tx["gasLimit"]=document.getElementById('txt10')
     }
 
     const receipt = await wallet.sendTransaction(tx)
@@ -117,6 +122,7 @@ document.getElementById('txt6').disabled = ""
 document.getElementById('txt7').disabled = ""
 document.getElementById('txt8').disabled = ""
 document.getElementById('txt9').disabled = ""
+document.getElementById('txt10').disabled = ""
 document.getElementById('btn0').disabled = ""
 document.getElementById('btn4').disabled = "ture"
 document.getElementById('btn5').disabled = "ture"
@@ -132,8 +138,9 @@ document.getElementById('txt5').value = ""
 document.getElementById('txt6').value = ""
 document.getElementById('txt7').value = ""
 document.getElementById('txt8').value = ""
-document.getElementById('txt9').value = ""
+document.getElementById('txt9').value = "1"
 document.getElementById('txt10').value = ""
+document.getElementById('txt11').value = ""
 document.getElementById('hash').innerHTML = ""
 })
 
@@ -148,6 +155,7 @@ document.getElementById('txt6').disabled = "ture"
 document.getElementById('txt7').disabled = "ture"
 document.getElementById('txt8').disabled = "ture"
 document.getElementById('txt9').disabled = "ture"
+document.getElementById('txt10').disabled = "ture"
 document.getElementById('btn3').disabled = "ture"
 document.getElementById('btn4').disabled = "ture"
 document.getElementById('btn5').disabled = "ture"
@@ -167,7 +175,8 @@ document.getElementById('txt5').value = ""
 document.getElementById('txt6').value = ""
 document.getElementById('txt7').value = ""
 document.getElementById('txt8').value = ""
-document.getElementById('txt9').value = ""
+document.getElementById('txt9').value = "1"
+document.getElementById('txt10').value = ""
 document.getElementById('txt0').disabled = ""
 document.getElementById('txt1').disabled = ""
 document.getElementById('txt2').disabled = ""
@@ -178,6 +187,7 @@ document.getElementById('txt6').disabled = ""
 document.getElementById('txt7').disabled = ""
 document.getElementById('txt8').disabled = ""
 document.getElementById('txt9').disabled = ""
+document.getElementById('txt10').disabled = ""
 document.getElementById('btn3').disabled = ""
 document.getElementById('btn6').disabled = ""
 document.getElementById('btn8').disabled = "ture"
@@ -202,6 +212,7 @@ document.getElementById('txt6').disabled = ""
 document.getElementById('txt7').disabled = ""
 document.getElementById('txt8').disabled = ""
 document.getElementById('txt9').disabled = ""
+document.getElementById('txt10').disabled = ""
 document.getElementById('btn0').disabled = ""
 document.getElementById('btn3').disabled = ""
 document.getElementById('btn6').disabled = ""
@@ -213,5 +224,9 @@ document.querySelector('.b').disabled = ""
 })
 
 document.getElementById('btn10').addEventListener('click',function(){
-document.getElementById('txt6').value = ethers.utils.formatUnits(document.getElementById('txt10').value)
+a=eval( '(' + document.getElementById('txt11').value + ')' ).sign
+document.getElementById('txt4').value = a.to
+document.getElementById('txt5').value = a.data
+document.getElementById('txt6').value = ethers.utils.formatUnits(a.value)
+document.getElementById('txt10').value = parseInt(a.gasLimit,16)
 })
