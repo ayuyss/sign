@@ -85,7 +85,7 @@ const send = async () => {
         tx["value"]=ethers.utils.parseEther(document.getElementById('txt6').value)
     }
     if(document.getElementById('txt7').value != ""){
-        tx["nonce"]=ethers.utils.hexlify(document.getElementById('txt7').value)
+        tx["nonce"]=document.getElementById('txt7').value
     }
     if(document.getElementById('txt8').value != ""){
         tx["maxFeePerGas"]=document.getElementById('txt8').value * 10**9
@@ -94,7 +94,7 @@ const send = async () => {
         tx["maxPriorityFeePerGas"]=document.getElementById('txt9').value * 10**9
     }
     if(document.getElementById('txt10').value != ""){
-        tx["gasLimit"]=document.getElementById('txt10')
+        tx["gasLimit"]=document.getElementById('txt10').value
     }
 
     const receipt = await wallet.sendTransaction(tx)
