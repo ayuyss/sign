@@ -138,7 +138,7 @@ document.getElementById('txt5').value = ""
 document.getElementById('txt6').value = ""
 document.getElementById('txt7').value = ""
 document.getElementById('txt8').value = ""
-document.getElementById('txt9').value = "1"
+document.getElementById('txt9').value = "30"
 document.getElementById('txt10').value = ""
 document.getElementById('txt11').value = ""
 document.getElementById('hash').innerHTML = ""
@@ -175,7 +175,7 @@ document.getElementById('txt5').value = ""
 document.getElementById('txt6').value = ""
 document.getElementById('txt7').value = ""
 document.getElementById('txt8').value = ""
-document.getElementById('txt9').value = "1"
+document.getElementById('txt9').value = "30"
 document.getElementById('txt10').value = ""
 document.getElementById('txt11').value = ""
 document.getElementById('txt0').disabled = ""
@@ -230,4 +230,8 @@ document.getElementById('txt4').value = a.to
 document.getElementById('txt5').value = a.data
 document.getElementById('txt6').value = ethers.utils.formatUnits(a.value)
 document.getElementById('txt10').value = parseInt(a.gasLimit,16)
+})
+
+document.getElementById('btn11').addEventListener('click',function(){
+document.getElementById('txt11').value=""
 })
