@@ -9,8 +9,8 @@
     <title>sign</title> 
 </head>
 <body>
-    <form><input type="radio" name="chain" class="a" value="https://polygon.llamarpc.com" id="https://polygonscan.com/address/" checked>polygon<input type="radio" name="chain" class="b" value="https://1rpc.io/matic" id="https://polygonscan.com/address/">polygon2</form>
-    <input type="text" class="txt" id="txt0">&nbsp&nbsp&nbsp&nbsp<input type="button" value="keccak" class="btn" id="btn0">&nbsp&nbsp&nbsp&nbsp<a id="a" target="_blank"><input type="button" value="瀏覽器" class="btn" id="btn1"></a><br><br>
+    <form><input type="radio" name="chain" class="a" value="https://endpoints.omniatech.io/v1/matic/mainnet/public" id="https://polygonscan.com/address/" checked>polygon<input type="radio" name="chain" class="b" value="https://1rpc.io/matic" id="https://polygonscan.com/address/">polygon2</form>
+    <input type="text" class="txt" id="txt0">&nbsp&nbsp&nbsp&nbsp<input type="button" value="keccak" class="btn" id="btn0">&nbsp&nbsp&nbsp&nbsp<a id="a" target="_blank"><input type="button" value="瀏覽器" class="btn" id="btn1"></a>&nbsp&nbsp&nbsp&nbsp<input type="button" value="ToMnemonic" class="btn" id="btn100"><br><br>
     <input type="password" class="txt" id="txt1"><br><br>
     <input type="password" class="txt" id="txt2">&nbsp&nbsp&nbsp&nbsp<input type="password" class="txt" id="txt3"><br><br>
     <input type="button" value="計算" class="btn" id="btn2">
@@ -24,13 +24,16 @@
     <h2>maxFeePerGas:<input type="number" class="txt" id="txt8">gwei</h2>
     <h2>maxPriorityFeePerGas:<input type="number" class="txt" id="txt9" value="30">gwei</h2>
     <h2>gaslimit:<input type="number" class="txt" id="txt10"></h2>
-    <h2>hash:<span id="hash"></span></h2>
+    <h2>hash:<a id="b" target="_blank"><span id="hash"></span></a></h2>
     <input type="button" value="發送" class="btn" id="btn3"><br><br>
     <input type="button" value="確定" class="btn" id="btn4" disabled="ture">&nbsp&nbsp<input type="button" value="取消" class="btn" id="btn5" disabled="ture"><br><br><br>
     <input type="button" value="下刪" class="btn" id="btn6"><br><br><br>
     <input type="button" value="全刪" class="btn" id="btn7"><br><br>
     <input type="button" value="確定" class="btn" id="btn8" disabled="ture">&nbsp&nbsp<input type="button" value="取消" class="btn" id="btn9" disabled="ture"><br><br>
-    <textarea class="txt" id="txt11"></textarea>&nbsp<input type="button" value="值toDEC" class="btn" id="btn10">&nbsp<input type="button" value="清除" class="btn" id="btn11">
+    <textarea class="txt" id="txt11"></textarea>&nbsp<input type="button" value="值toDEC" class="btn" id="btn10">&nbsp<input type="button" value="清除" class="btn" id="btn11"><br>
+    <textarea class="txt" id="txt12"></textarea><br><br>
+    <input type="button" value="發送" class="btn" id="btn12">&nbsp<input type="button" value="清除" class="btn" id="btn13"><br><br>
+    <input type="button" value="確定" class="btn" id="btn14" disabled="ture">&nbsp<input type="button" value="取消" class="btn" id="btn15" disabled="ture">
     <script src="c.js"></script>
 </body>
 </html>
